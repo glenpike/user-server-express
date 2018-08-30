@@ -1,15 +1,13 @@
 /* global require, it, describe, before, after, __dirname */
 import chai, { expect } from 'chai';
 import chaiThings from 'chai-things';
-import request from 'superagent';
-// import supertest from 'supertest';
-// import app from '../../src/';
-// import db from '../../src/db';
+import supertest from 'supertest';
+import app from '../../src/express';
+import db from '../../src/db';
 
 chai.use(chaiThings);
 
-// const serverURL = '/api';
-const serverURL = 'http://localhost:3000/api/';
+const serverURL = '/api';
 
 const testUser = {
   userName: 'evalkneeval',
@@ -21,19 +19,20 @@ const testUser = {
 const password = 'M0t0rb1ke';
 
 describe('user-server library API tests', () => {
-  // let request = null;
-  // let server = null;
-  // before((done) => {
-  //   server = app.listen(done);
-  //   request = supertest.agent(server);
-  // });
+  let request = null;
+  let server = null;
+  before((done) => {
+    server = app.listen();
+    request = supertest.agent(server);
+    done();
+  });
 
-  // after((done) => {
-  //   server.close(() => {
-  //     db.close();
-  //     done();
-  //   });
-  // });
+  after((done) => {
+    server.close(() => {
+      db.close();
+      done();
+    });
+  });
 
   it('can register a user', async () => {
     const res = await request.post(`${serverURL}/register/`)

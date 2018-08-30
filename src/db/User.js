@@ -1,4 +1,4 @@
-import db from './';
+import db from '.';
 import logger from '../utils/logger';
 
 export const DATABASE_ERROR = 'There was an error with the database';
@@ -41,4 +41,4 @@ export const findBy = (key, value) => {
     logger.error('findBy error: ', error);
     return { error: DATABASE_ERROR };
   }
-}
+};
