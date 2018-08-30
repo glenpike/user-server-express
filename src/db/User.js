@@ -4,6 +4,8 @@ import logger from '../utils/logger';
 export const DATABASE_ERROR = 'There was an error with the database';
 export const INSERT_ERROR = 'There was an error adding the user';
 
+// FIXME (?) If we swapped the DB engine, we might end up with an async one so
+// these functions should be async along with the route ones...
 export const addUser = (user) => {
   const {
     userName, email, firstName, lastName, password,
@@ -28,3 +30,15 @@ export const addUser = (user) => {
     return { error: DATABASE_ERROR };
   }
 };
+
+export const findBy = (key, value) => {
+  const query = `SELECT * FROM users WHERE ${key}=?`;
+  try {
+    const result = db.prepare(query).get(value);
+    logger.debug('findBy result ', result);
+    return { user: result };
+  } catch (error) {
+    logger.error('findBy error: ', error);
+    return { error: DATABASE_ERROR };
+  }
+}
