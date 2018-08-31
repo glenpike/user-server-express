@@ -17,6 +17,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^3.0.0",
     "better-sqlite3": "^4.1.4",
     "body-parser": "^1.14.1",
     "express": "^4.13.3",
