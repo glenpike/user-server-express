@@ -1,4 +1,3 @@
-/* global module */
 import express from 'express';
 import logger from '../utils/logger';
 import { addUser, findBy, validateUser } from '../db/User';
@@ -8,7 +7,7 @@ const router = express.Router();
 const USER_EXISTS_ERROR = 'Username is invalid';
 
 router.post('/', (req, res, next) => {
-  logger.debug('POST register ', req.body);
+  logger.info('POST register ', req.body);
   const {
     userName, email, firstName, lastName, password,
   } = req.body;
