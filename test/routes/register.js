@@ -79,7 +79,7 @@ describe('user-server library API tests', () => {
     }
   });
 
-  it.skip('can\'t register a user with missing email', async () => {
+  it('can\'t register a user with missing email', async () => {
     const invalidUser = {
       firstName: 'Duplicate',
       lastName: 'User',

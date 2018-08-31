@@ -3,6 +3,7 @@ import logger from '../utils/logger';
 
 export const DATABASE_ERROR = 'There was an error with the database';
 export const INSERT_ERROR = 'There was an error adding the user';
+export const INVALID_USER_ERROR = 'Invalid user details - require userName, email, password';
 
 // FIXME (?) If we swapped the DB engine, we might end up with an async one so
 // these functions should be async along with the route ones...
@@ -41,4 +42,12 @@ export const findBy = (key, value) => {
     logger.error('findBy error: ', error);
     return { error: DATABASE_ERROR };
   }
+};
+
+export const validateUser = (user) => {
+  const { userName, email, password } = user;
+  if (!userName || !email || !password) {
+    return { error: INVALID_USER_ERROR };
+  }
+  return { valid: true };
 };
