@@ -1,8 +1,11 @@
 {
-  "name": "user-server",
+  "name": "user-server-express",
   "version": "1.0.0",
-  "description": "",
+  "description": "An Express example project for an API allowing users to register themselves and someone with an API Key to manipulate these users.",
   "main": "src/index.js",
+  "engines": {
+    "node": ">=8.11.4"
+  },
   "scripts": {
     "start": "babel-node src/index.js | bunyan -o short",
     "debug": "babel-node --inspect src/index.js",
@@ -11,11 +14,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "/home/ski/git/user-server/"
+    "url": "https://github.com/glenpike/user-server-express"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "github@glenpike.co.uk",
+  "license": "MIT",
   "dependencies": {
     "bcrypt": "^3.0.0",
     "better-sqlite3": "^4.1.4",
