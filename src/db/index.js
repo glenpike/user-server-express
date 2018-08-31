@@ -2,7 +2,7 @@ import Database from 'better-sqlite3';
 import config from '../../config/env';
 
 const options = {};
-if (process.env.NODE_ENV === 'test') {
+if (config.env === 'test') {
   options.memory = true;
 }
 
