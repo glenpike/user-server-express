@@ -1,4 +1,4 @@
 export default {
-  env: 'test',
-  db: 'test.db',
+  env: "test",
+  db: ":memory:",
 };

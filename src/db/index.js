@@ -1,12 +1,7 @@
-import Database from 'better-sqlite3';
-import config from '../../config/env';
+import Database from "better-sqlite3";
+import config from "../../config/env";
 
-const options = {};
-if (config.env === 'test') {
-  options.memory = true;
-}
-
-const db = new Database(config.db, options);
+const db = new Database(config.db, {});
 
 const initQuery = `CREATE TABLE IF NOT EXISTS users (
   id INTEGER PRIMARY KEY,
